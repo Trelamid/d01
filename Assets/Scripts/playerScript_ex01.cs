@@ -36,7 +36,7 @@ public class playerScript_ex01 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag is "Platform" or "Player")
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag(("Platform" + _color.ToString())))
         {
             _isJump = false;
         }
@@ -76,9 +76,9 @@ public class playerScript_ex01 : MonoBehaviour
     void Move()
     {
         // if(Input.GetKey(KeyCode.RightArrow))
-        //     _rigidbody2D.velocity =Vector2.right  *_speed * Time.deltaTime;
+        //     _rigidbody2D.velocity =Vector2.right  *_speed * ;
         // if(Input.GetKey(KeyCode.LeftArrow))
-        //     _rigidbody2D.velocity = Vector2.left *_speed * Time.deltaTime;
+        //     _rigidbody2D.velocity = Vector2.left *_speed * 0.1f;
         float horizontal = Input.GetAxis("Horizontal");
         // _rigidbody2D.MovePosition(Vector2.right * horizontal * _speed);
         transform.Translate(Vector3.right * horizontal * Time.deltaTime * _speed);
