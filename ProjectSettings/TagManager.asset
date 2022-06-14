@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
-  - UIManager
+  - Platformblue
+  - Platformred
+  - Platformyellow
   layers:
   - Default
   - TransparentFX
