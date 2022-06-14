@@ -20,8 +20,6 @@ public class FollowPlayer : MonoBehaviour
                 _playersScripts.Add(player.GetComponent<playerScript_ex00>());
             else if(player.GetComponent<playerScript_ex01>())
                 _playersScripts.Add(player.GetComponent<playerScript_ex01>());
-            else if(player.GetComponent<playerScript_ex02>())
-                _playersScripts.Add(player.GetComponent<playerScript_ex02>());
         }
     }
 
