@@ -25,6 +25,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_players[activePlayer].transform.position.y < -1) return;
         Vector3 posToSO = _players[activePlayer].transform.position + offset;
         Vector3 smoothPosition = Vector3.Lerp(transform.position, posToSO, 0.05f);
         transform.position = smoothPosition;
