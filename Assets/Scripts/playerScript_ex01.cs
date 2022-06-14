@@ -17,12 +17,15 @@ public class playerScript_ex01 : MonoBehaviour
     private Quaternion _zeroRot;
     private bool _isJump = false;
     public bool isFinish;
+    private UIManager _uiManager;
 
     private Rigidbody2D _rigidbody2D;
     void Start()
     {
         _zeroRot = new Quaternion(0, 0, 0, transform.rotation.w);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _uiManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
+        
     }
 
     // Update is called once per frame
@@ -92,5 +95,12 @@ public class playerScript_ex01 : MonoBehaviour
             // Debug.Log(1);
             _rigidbody2D.velocity = Vector2.up * _jump;
         }
+    }
+
+    public void Kill()
+    {
+        _uiManager.SetDiedScreen();
+        Camera.main.GetComponent<FollowPlayer>().Freeze();
+        
     }
 }

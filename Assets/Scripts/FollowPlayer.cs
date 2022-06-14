@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class FollowPlayer : MonoBehaviour
     // private List<playerScript_ex01> _playersScripts2;
     private int activePlayer = 0;
     private Vector3 offset = new Vector3(0, 0, -1);
+    private bool _pause = false;
     
     private void Start()
     {
@@ -36,14 +38,15 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (_pause) return;
         if (Input.GetKey(KeyCode.Alpha1))
         {
             activePlayer = 0;
             _playersScripts[0].enabled = true;
             _playersScripts[1].enabled = false;
             _playersScripts[2].enabled = false;
-            
-            
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
@@ -59,5 +62,13 @@ public class FollowPlayer : MonoBehaviour
             _playersScripts[1].enabled = false;
             _playersScripts[2].enabled = true;
         }
+    }
+
+    public void Freeze()
+    {
+        _pause = true;
+        _playersScripts[0].enabled = false;
+        _playersScripts[1].enabled = false;
+        _playersScripts[2].enabled = false;
     }
 }

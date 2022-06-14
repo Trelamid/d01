@@ -5,11 +5,22 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletObj;
+    [SerializeField] private List<GameObject> _bulletObj;
     [SerializeField] private GameObject _placeOfSpawn;
+    [SerializeField] private playerScript_ex01.ColorChar target;
 
-    private void Start()
+    [SerializeField] private float _rateOfFire = 2f;
+    private float _rate = 0;
+
+    private void FixedUpdate()
     {
-        Instantiate(_bulletObj, transform);
+        if ((_rate += Time.deltaTime) >= _rateOfFire)
+        {
+            var bul = Instantiate(_bulletObj[(int)target], _placeOfSpawn.transform.position, transform.rotation);
+            bul.GetComponent<Bullet>().colorChar = target;
+            bul.SetActive(true);
+            _rate = 0;
+        }
     }
+    
 }

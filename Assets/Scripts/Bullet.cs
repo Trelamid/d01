@@ -1,9 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	[SerializeField] private Vector2 direction;
+	public playerScript_ex01.ColorChar colorChar;
+
+	private void Start()
+	{
+		StartCoroutine(BulletLife());
+	}
+	
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			if (other.gameObject.GetComponent<playerScript_ex01>()._color == colorChar)
+			{
+				other.gameObject.GetComponent<playerScript_ex01>().Kill();
+			}
+		}
+		Destroy(gameObject);
+	}
+
+	private void Update()
+	{
+		transform.Translate(Vector3.left * Time.deltaTime);
+	}
+
+	private IEnumerator BulletLife()
+	{
+		yield return new WaitForSeconds(5f);
+		gameObject.SetActive(false);
+		Destroy(gameObject);
+	}
 	
 }
