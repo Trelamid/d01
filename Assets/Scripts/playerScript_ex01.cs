@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerScript_ex01 : MonoBehaviour
+public class playerScript_ex01 : Character
 {
     public enum ColorChar
     {
@@ -16,7 +16,7 @@ public class playerScript_ex01 : MonoBehaviour
     public ColorChar _color;
     private Quaternion _zeroRot;
     private bool _isJump = false;
-    public bool isFinish;
+    // public bool isFinish;
     private UIManager _uiManager;
 
     private Rigidbody2D _rigidbody2D;
@@ -24,7 +24,8 @@ public class playerScript_ex01 : MonoBehaviour
     {
         _zeroRot = new Quaternion(0, 0, 0, transform.rotation.w);
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _uiManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
+        if (GameObject.FindWithTag("UIManager"))
+            _uiManager = GameObject.FindWithTag("UIManager").GetComponent<UIManager>();
         
     }
 

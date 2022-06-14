@@ -26,12 +26,12 @@ public class Bullet : MonoBehaviour
 
 	private void Update()
 	{
-		transform.Translate(Vector3.left * Time.deltaTime);
+		transform.Translate(Vector3.left * Time.deltaTime * 2);
 	}
 
 	private IEnumerator BulletLife()
 	{
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(2f);
 		gameObject.SetActive(false);
 		Destroy(gameObject);
 	}

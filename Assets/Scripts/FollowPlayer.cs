@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _players;
-    private List<MonoBehaviour> _playersScripts;
+    private List<Character> _playersScripts;
     // private List<playerScript_ex01> _playersScripts2;
     private int activePlayer = 0;
-    private Vector3 offset = new Vector3(0, 0, -1);
+    private Vector3 offset = new Vector3(0, 0, -8);
     private bool _pause = false;
     
     private void Start()
     {
-        _playersScripts = new List<MonoBehaviour>();
+        _playersScripts = new List<Character>();
         foreach (GameObject player in _players)
         {
             if (player.GetComponent<playerScript_ex00>())
@@ -36,6 +36,12 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (_playersScripts[0].isFinish && _playersScripts[1].isFinish && _playersScripts[2].isFinish)
+        {
+            if (5 > SceneManager.GetActiveScene().buildIndex)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         if (_pause) return;

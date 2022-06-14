@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 225830044161409322}
   - component: {fileID: 225830044161409323}
-  - component: {fileID: 225830044161409364}
+  - component: {fileID: 3237586086208894591}
   m_Layer: 0
   m_Name: Turell
   m_TagString: Untagged
@@ -55,8 +55,8 @@ MonoBehaviour:
   _placeOfSpawn: {fileID: 225830044193717956}
   target: 1
   _rateOfFire: 4
---- !u!61 &225830044161409364
-BoxCollider2D:
+--- !u!60 &3237586086208894591
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,7 +68,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00169909, y: -0.011893205}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -78,9 +78,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.40533948, y: 0.33058202}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.06365864, y: 0.15101027}
+      - {x: -0.06525244, y: 0.06820179}
+      - {x: -0.06525728, y: 0.02646928}
+      - {x: -0.0652708, y: -0.17445351}
+      - {x: 0.2020885, y: -0.1729788}
+      - {x: 0.20295289, y: 0.15181802}
 --- !u!1 &225830044193717956
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225830044193717956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19606209, y: 0.12216087, z: 0}
+  m_LocalPosition: {x: -0.198, y: 0.12, z: 0}
   m_LocalScale: {x: 0.1427131, y: 0.1427131, z: 0.1427131}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +215,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4676579}
+  m_Offset: {x: 0, y: 0.4947905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -221,7 +226,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.15, y: 0.06468421}
+  m_Size: {x: 1.15, y: 0.0105190575}
   m_EdgeRadius: 0
 --- !u!1001 &6143347967798766995
 PrefabInstance:

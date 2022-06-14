@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerScript_ex00 : MonoBehaviour
+public class playerScript_ex00 : Character
 {
     public enum ColorChar
     {
@@ -16,7 +16,7 @@ public class playerScript_ex00 : MonoBehaviour
     public ColorChar _color;
     private Quaternion _zeroRot;
     private bool _isJump = false;
-    public bool isFinish;
+    // public bool isFinish;
 
     private Rigidbody2D _rigidbody2D;
     void Start()
