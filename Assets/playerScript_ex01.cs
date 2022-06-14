@@ -36,12 +36,12 @@ public class playerScript_ex01 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag is "Platform" or "Player")
         {
             _isJump = false;
         }
 
-        if (collision.gameObject.tag == "Finish" && collision.gameObject.name == _color.ToString())
+        if (collision.gameObject.CompareTag("Finish") && collision.gameObject.name == _color.ToString())
         {
             isFinish = true;
         }
@@ -49,7 +49,7 @@ public class playerScript_ex01 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Finish" && other.gameObject.name == _color.ToString())
+        if (other.gameObject.CompareTag("Finish") && other.gameObject.name == _color.ToString())
         {
             Debug.Log("Enter");
             isFinish = true;
@@ -57,7 +57,7 @@ public class playerScript_ex01 : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Finish" && other.gameObject.name == _color.ToString())
+        if (other.gameObject.CompareTag("Finish") && other.gameObject.name == _color.ToString())
         {
             Debug.Log("Exit");
             isFinish = false;
@@ -88,8 +88,8 @@ public class playerScript_ex01 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !_isJump)
         {
-            _isJump = true;
-            Debug.Log(1);
+            // _isJump = true;
+            // Debug.Log(1);
             _rigidbody2D.velocity = Vector2.up * _jump;
         }
     }

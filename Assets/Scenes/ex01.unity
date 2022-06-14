@@ -766,12 +766,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55c3899946864a47b028799c8bdc05e, type: 3}
+  m_Script: {fileID: 11500000, guid: bc26676edaae7c2478c0aee39386fd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _yellow: {fileID: 1561172439}
-  _blue: {fileID: 53678870}
-  _red: {fileID: 1184201198}
+  _players:
+  - {fileID: 1184201198}
+  - {fileID: 1561172439}
+  - {fileID: 53678870}
 --- !u!1 &1040135395
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,15 +6,21 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _players;
-    private List<playerScript_ex00> _playersScripts;
+    private List<MonoBehaviour> _playersScripts;
+    private List<playerScript_ex01> _playersScripts2;
     private int activePlayer = 0;
     private Vector3 offset = new Vector3(0, 0, -8);
     
     private void Start()
     {
-        _playersScripts = new List<playerScript_ex00>();
+        _playersScripts = new List<MonoBehaviour>();
         foreach (GameObject player in _players)
-            _playersScripts.Add(player.GetComponent<playerScript_ex00>());
+        {
+            if (player.GetComponent<playerScript_ex00>())
+                _playersScripts.Add(player.GetComponent<playerScript_ex00>());
+            else 
+                _playersScripts.Add(player.GetComponent<playerScript_ex01>());
+        }
     }
 
     private void LateUpdate()
