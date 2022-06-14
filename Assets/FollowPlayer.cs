@@ -7,9 +7,9 @@ public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _players;
     private List<MonoBehaviour> _playersScripts;
-    private List<playerScript_ex01> _playersScripts2;
+    // private List<playerScript_ex01> _playersScripts2;
     private int activePlayer = 0;
-    private Vector3 offset = new Vector3(0, 0, -8);
+    private Vector3 offset = new Vector3(0, 0, -1);
     
     private void Start()
     {
@@ -18,8 +18,10 @@ public class FollowPlayer : MonoBehaviour
         {
             if (player.GetComponent<playerScript_ex00>())
                 _playersScripts.Add(player.GetComponent<playerScript_ex00>());
-            else 
+            else if(player.GetComponent<playerScript_ex01>())
                 _playersScripts.Add(player.GetComponent<playerScript_ex01>());
+            else if(player.GetComponent<playerScript_ex02>())
+                _playersScripts.Add(player.GetComponent<playerScript_ex02>());
         }
     }
 
@@ -28,6 +30,7 @@ public class FollowPlayer : MonoBehaviour
         Vector3 posToSO = _players[activePlayer].transform.position + offset;
         Vector3 smoothPosition = Vector3.Lerp(transform.position, posToSO, 0.05f);
         transform.position = smoothPosition;
+        transform.position = _players[activePlayer].transform.position + offset;
     }
 
     private void Update()
@@ -38,6 +41,8 @@ public class FollowPlayer : MonoBehaviour
             _playersScripts[0].enabled = true;
             _playersScripts[1].enabled = false;
             _playersScripts[2].enabled = false;
+            
+            
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {

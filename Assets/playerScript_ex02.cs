@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerScript_ex01 : MonoBehaviour
+public class playerScript_ex02 : MonoBehaviour
 {
     public enum ColorChar
     {
