@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _jump: 5
+  _jump: 5.5
   _color: 0
   isFinish: 0
 --- !u!1 &1710537034
